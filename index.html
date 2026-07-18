@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graze & Bake Catering Co. — Grazing Tables, Platters & Bakes | Essex & London</title>
+<meta name="description" content="Bespoke grazing tables, charcuterie carts, party boxes and bakes across Essex & London. As seen at events for Jacqueline Jossa and Ferne McCann.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Karla:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --terra:#A56940;
+  --terra-deep:#8A5432;
+  --terra-dark:#6E4227;
+  --cream:#F2E9E1;
+  --cream-warm:#EADFD3;
+  --ink:#3B2818;
+  --soft:#C99B77;
+  --display:'Josefin Sans',sans-serif;
+  --body:'Karla',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);font-size:17px;line-height:1.65}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.2rem,4vw,3rem);height:68px;box-shadow:0 1px 0 rgba(0,0,0,.12)}
+.nav-logo{font-family:var(--display);font-weight:700;font-size:1.25rem;color:var(--cream);letter-spacing:.14em;text-decoration:none}
+.nav-logo span{font-weight:300;font-size:.62rem;display:block;letter-spacing:.5em;margin-top:2px;color:var(--cream-warm)}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-links a{color:var(--cream);text-decoration:none;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.9}
+.nav-links a:hover,.nav-links a:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.nav-cta{background:var(--cream);color:var(--terra-dark)!important;padding:.55rem 1.2rem;border-radius:2px}
+.nav-cta:hover{text-decoration:none!important;background:var(--cream-warm)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--cream);margin:5px 0}
+@media(max-width:840px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--terra-deep);flex-direction:column;padding:1.5rem;gap:1.2rem}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+}
+
+/* ── HERO ── */
+.hero{background:var(--terra);color:var(--cream);min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 1.5rem 4rem;position:relative;overflow:hidden}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,8vw,5.6rem);letter-spacing:.1em;line-height:1.04}
+.hero h1 .amp{font-weight:300}
+.hero .co{font-family:var(--display);font-weight:300;font-size:clamp(.8rem,1.8vw,1.05rem);letter-spacing:.65em;margin-top:.9rem;color:var(--cream-warm);text-indent:.65em}
+.hero-rule{width:56px;height:2px;background:var(--cream);opacity:.6;margin:2.2rem 0 1.8rem}
+.hero p{max-width:34rem;font-size:clamp(1rem,2vw,1.15rem);font-weight:300;color:var(--cream-warm)}
+.hero p strong{color:var(--cream);font-weight:600}
+.hero-btns{display:flex;gap:1rem;margin-top:2.4rem;flex-wrap:wrap;justify-content:center}
+.btn{font-family:var(--display);font-weight:600;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:1rem 2rem;border-radius:2px;display:inline-block;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:var(--cream);color:var(--terra-dark)}
+.btn-solid:hover{background:#fff}
+.btn-ghost{border:1.5px solid var(--cream);color:var(--cream)}
+.btn-ghost:hover{background:rgba(242,233,225,.12)}
+
+/* ── MARQUEE ── */
+.marquee{background:var(--terra-dark);color:var(--cream-warm);overflow:hidden;padding:.85rem 0;white-space:nowrap}
+.marquee-track{display:inline-block;animation:scroll 38s linear infinite;font-family:var(--display);font-weight:300;font-size:.82rem;letter-spacing:.3em;text-transform:uppercase}
+.marquee-track span{margin:0 1.6rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+.section{padding:clamp(4rem,9vw,7rem) clamp(1.5rem,6vw,4rem)}
+.wrap{max-width:1080px;margin:0 auto}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem}
+.section h2{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,4.5vw,2.8rem);letter-spacing:.06em;line-height:1.15;margin-bottom:1.4rem}
+.section p.lead{max-width:42rem;font-size:1.08rem}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,6vw,4.5rem);align-items:center}
+@media(max-width:840px){.about-grid{grid-template-columns:1fr}}
+.about-copy p{margin-bottom:1.1rem;font-weight:300}
+.about-copy p strong{font-weight:600}
+.celeb-strip{margin-top:1.8rem;padding:1.2rem 1.4rem;background:var(--cream-warm);border-left:3px solid var(--terra);font-size:.95rem}
+.celeb-strip b{font-family:var(--display);letter-spacing:.05em}
+.photo-frame{aspect-ratio:4/5;background:var(--terra);border-radius:3px;display:flex;align-items:center;justify-content:center;color:var(--cream-warm);font-family:var(--display);letter-spacing:.4em;font-size:.8rem}
+
+/* ── MENU (signature) ── */
+.menu-section{background:var(--terra);color:var(--cream)}
+.menu-section .eyebrow{color:var(--soft)}
+.menu-section h2{color:var(--cream)}
+.menu-intro{color:var(--cream-warm);font-weight:300;max-width:40rem;margin-bottom:3rem}
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+@media(max-width:840px){.menu-cols{grid-template-columns:1fr}}
+.menu-group{margin-bottom:2.4rem}
+.menu-group h3{font-family:var(--display);font-weight:600;font-size:1.05rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid rgba(242,233,225,.35);padding-bottom:.6rem;margin-bottom:1rem}
+.menu-item{display:flex;align-items:baseline;margin-bottom:.75rem;gap:.5rem}
+.menu-item .name{font-weight:400;white-space:nowrap}
+.menu-item .dots{flex:1;border-bottom:1.5px dotted rgba(242,233,225,.4);transform:translateY(-4px)}
+.menu-item .price{font-family:var(--display);font-weight:600;white-space:nowrap;letter-spacing:.03em}
+.menu-item .sub{display:block;font-size:.82rem;color:var(--cream-warm);font-weight:300;margin-top:.1rem}
+.menu-note{margin-top:2rem;font-size:.85rem;color:var(--cream-warm);font-weight:300;font-style:italic}
+
+/* ── CART FEATURE ── */
+.cart-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,4.5rem);align-items:center}
+@media(max-width:840px){.cart-grid{grid-template-columns:1fr}}
+.cart-copy ul{list-style:none;margin:1.4rem 0}
+.cart-copy li{padding-left:1.6rem;position:relative;margin-bottom:.7rem;font-weight:300}
+.cart-copy li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--terra);border-radius:50%}
+.price-tag{display:inline-block;font-family:var(--display);font-weight:700;font-size:1.3rem;background:var(--terra);color:var(--cream);padding:.6rem 1.3rem;border-radius:2px;margin-top:.6rem;letter-spacing:.04em}
+
+/* ── GALLERY ── */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:700px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.gallery .ph{aspect-ratio:1;background:var(--cream-warm);border:1.5px dashed var(--soft);border-radius:3px;display:flex;align-items:center;justify-content:center;color:var(--soft);font-family:var(--display);font-size:.72rem;letter-spacing:.35em}
+.ig-cta{margin-top:1.8rem;font-size:.95rem}
+.ig-cta a{color:var(--terra);font-weight:600}
+
+/* ── ENQUIRE ── */
+.enquire{background:var(--terra-dark);color:var(--cream);text-align:center}
+.enquire h2{color:var(--cream)}
+.enquire p{max-width:36rem;margin:0 auto 2rem;color:var(--cream-warm);font-weight:300}
+.enquire .btn-solid{font-size:.95rem;padding:1.15rem 2.6rem}
+.enquire .alt{margin-top:1.4rem;font-size:.9rem;color:var(--soft)}
+.enquire .alt a{color:var(--cream)}
+
+/* ── ENQUIRY FORM ── */
+.form-wrap{max-width:720px;margin:2.5rem auto 0;text-align:left}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+.field input,.field select,.field textarea{font-family:var(--body);font-size:1rem;padding:.85rem 1rem;border:1.5px solid rgba(242,233,225,.35);background:rgba(242,233,225,.08);color:var(--cream);border-radius:2px;width:100%}
+.field input::placeholder,.field textarea::placeholder{color:rgba(242,233,225,.45)}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F2E9E1' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.field select option{color:var(--ink);background:var(--cream)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--cream);outline-offset:1px;background:rgba(242,233,225,.14)}
+.field textarea{min-height:110px;resize:vertical}
+.svc-checks{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:.2rem}
+@media(max-width:520px){.svc-checks{grid-template-columns:1fr}}
+.svc-checks label{display:flex;align-items:center;gap:.6rem;font-family:var(--body);font-size:.92rem;font-weight:300;color:var(--cream-warm);text-transform:none;letter-spacing:0;cursor:pointer}
+.svc-checks input{width:auto;accent-color:var(--cream)}
+.form-submit{grid-column:1/-1;text-align:center;margin-top:.8rem}
+.form-submit button{font-family:var(--display);font-weight:600;font-size:.95rem;letter-spacing:.18em;text-transform:uppercase;background:var(--cream);color:var(--terra-dark);border:none;padding:1.15rem 3rem;border-radius:2px;cursor:pointer;transition:transform .15s ease,background .15s ease}
+.form-submit button:hover{transform:translateY(-2px);background:#fff}
+.form-privacy{grid-column:1/-1;font-size:.8rem;color:var(--soft);text-align:center;font-weight:300;margin-top:.4rem}
+
+/* ── FOOTER ── */
+footer{background:var(--terra);color:var(--cream-warm);padding:3rem clamp(1.5rem,6vw,4rem);text-align:center;font-size:.88rem;font-weight:300}
+footer .f-logo{font-family:var(--display);font-weight:700;letter-spacing:.16em;font-size:1.1rem;color:var(--cream);margin-bottom:.4rem}
+footer .f-links{margin:1.2rem 0;display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap}
+footer .f-links a{color:var(--cream);text-decoration:none}
+footer .f-links a:hover{text-decoration:underline}
+footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.section :focus-visible{outline-color:var(--terra)}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <a class="nav-logo" href="#top">GRAZE &amp; BAKE.<span>CATERING CO.</span></a>
+  <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu &amp; Prices</a></li>
+    <li><a href="#cart">The Cart</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a class="nav-cta" href="#enquire">Enquire</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <h1>GRAZE <span class="amp">&amp;</span> BAKE.</h1>
+  <div class="co">CATERING CO.</div>
+  <div class="hero-rule"></div>
+  <p>Bespoke grazing tables, platters &amp; bakes for celebrations across Essex &amp; London — <strong>as seen at events for Jacqueline Jossa and Ferne McCann.</strong></p>
+  <div class="hero-btns">
+    <a class="btn btn-solid" href="#enquire">Enquire now</a>
+    <a class="btn btn-ghost" href="#menu">View menu &amp; prices</a>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Grazing Tables</span>·<span>Charcuterie Cart</span>·<span>Grazing Platters</span>·<span>Kids Party Boxes</span>·<span>Celebration Cakes</span>·<span>Cupcakes</span>·<span>Sweet Cones</span>·<span>Brownies &amp; Cookies</span>·
+    <span>Grazing Tables</span>·<span>Charcuterie Cart</span>·<span>Grazing Platters</span>·<span>Kids Party Boxes</span>·<span>Celebration Cakes</span>·<span>Cupcakes</span>·<span>Sweet Cones</span>·<span>Brownies &amp; Cookies</span>·
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <div class="eyebrow">Who we are</div>
+      <h2>Handcrafted in Hutton, Essex.</h2>
+      <p>We're Josh &amp; Lauren, the couple behind Graze &amp; Bake. We create beautifully presented food for celebrations, corporate events, gatherings and special occasions across Essex and beyond.</p>
+      <p>From showstopping grazing tables and luxury platters to personalised kids' party boxes, cakes and sweet treats, everything we create is prepared with care and a real eye for detail.</p>
+      <p>We believe food should look every bit as good as it tastes. That's why every table, platter, box and bake is thoughtfully put together to make your occasion feel that little bit more special.</p>
+      <p><strong>Beautifully made. Thoughtfully styled. Made to be shared.</strong></p>
+      <div class="celeb-strip">
+        <b>As seen at events for Jacqueline Jossa &amp; Ferne McCann</b> — and at parties, weddings and corporate events across Essex &amp; London.
+      </div>
+    </div>
+    <div class="photo-frame reveal">YOUR PHOTO HERE</div>
+  </div>
+</section>
+
+<section class="section menu-section" id="menu">
+  <div class="wrap">
+    <div class="eyebrow reveal">Menu &amp; Prices</div>
+    <h2 class="reveal">What we make.</h2>
+    <p class="menu-intro reveal">All prices are starting rates — every event is quoted individually. Setup, styling and collection are included on our grazing tables.</p>
+
+    <div class="menu-cols">
+      <div>
+        <div class="menu-group reveal">
+          <h3>Grazing Tables</h3>
+          <div class="menu-item"><span class="name">Buffet style<span class="sub">Risers, boards &amp; full styling</span></span><span class="dots"></span><span class="price">from £22.50 pp</span></div>
+          <div class="menu-item"><span class="name">Flat lay<span class="sub">Laid directly on the table</span></span><span class="dots"></span><span class="price">from £22.50 pp</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Grazing Platters</h3>
+          <div class="menu-item"><span class="name">Standard</span><span class="dots"></span><span class="price">from £17.50 pp</span></div>
+          <div class="menu-item"><span class="name">Basic</span><span class="dots"></span><span class="price">from £13.50 pp</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Breakfast Platters</h3>
+          <div class="menu-item"><span class="name">First 10 people</span><span class="dots"></span><span class="price">£15 pp</span></div>
+          <div class="menu-item"><span class="name">People 11–20</span><span class="dots"></span><span class="price">£12.50 pp</span></div>
+          <div class="menu-item"><span class="name">People 21+</span><span class="dots"></span><span class="price">£10 pp</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Kids Party Boxes</h3>
+          <div class="menu-item"><span class="name">Premium<span class="sub">Personalised to match the theme of the party</span></span><span class="dots"></span><span class="price">£12.50 pp</span></div>
+          <div class="menu-item"><span class="name">Standard</span><span class="dots"></span><span class="price">£7.50 pp</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Cakes &amp; Cupcakes</h3>
+          <div class="menu-item"><span class="name">Celebration cake<span class="sub">Bespoke design · POA</span></span><span class="dots"></span><span class="price">from £75</span></div>
+          <div class="menu-item"><span class="name">Cupcakes · up to 6</span><span class="dots"></span><span class="price">£3 each</span></div>
+          <div class="menu-item"><span class="name">Cupcakes · 7–12</span><span class="dots"></span><span class="price">£2.50 each</span></div>
+          <div class="menu-item"><span class="name">Cupcakes · 13+</span><span class="dots"></span><span class="price">£2 each</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="menu-group reveal">
+          <h3>Cart Rental</h3>
+          <div class="menu-item"><span class="name">Rent our cart and do what you want with it!<span class="sub">3 hours · £35 per hour after</span></span><span class="dots"></span><span class="price">£150</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Charcuterie &amp; Cheese Cart</h3>
+          <div class="menu-item"><span class="name">Stocked hire<span class="sub">£50 per hour after</span></span><span class="dots"></span><span class="price">£400</span></div>
+          <div class="menu-item"><span class="name">Stocked &amp; staffed<span class="sub">3 hours · £50 per hour after</span></span><span class="dots"></span><span class="price">£600</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Sweet Cart</h3>
+          <div class="menu-item"><span class="name">Stocked hire<span class="sub">£50 per hour after</span></span><span class="dots"></span><span class="price">£275</span></div>
+          <div class="menu-item"><span class="name">Stocked &amp; staffed<span class="sub">3 hours · £50 per hour after</span></span><span class="dots"></span><span class="price">£400</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Cake Cart</h3>
+          <div class="menu-item"><span class="name">Stocked hire<span class="sub">£50 per hour after</span></span><span class="dots"></span><span class="price">£275</span></div>
+          <div class="menu-item"><span class="name">Stocked &amp; staffed<span class="sub">3 hours · £50 per hour after</span></span><span class="dots"></span><span class="price">£400</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Brownies &amp; Cookies</h3>
+          <div class="menu-item"><span class="name">Up to 6</span><span class="dots"></span><span class="price">£3.50 each</span></div>
+          <div class="menu-item"><span class="name">7–12</span><span class="dots"></span><span class="price">£2.50 each</span></div>
+          <div class="menu-item"><span class="name">13 or more</span><span class="dots"></span><span class="price">£2 each</span></div>
+        </div>
+
+        <div class="menu-group reveal">
+          <h3>Sweet Cones</h3>
+          <div class="menu-item"><span class="name">Personalised sweet cones</span><span class="dots"></span><span class="price">£3.50 each</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="menu-note reveal" style="margin-top:1.6rem;font-size:.95rem">Delivery fees may apply.</p>
+
+    <p class="menu-note reveal" style="font-size:1.05rem;font-style:normal;font-weight:400;margin-top:1.4rem;padding:1rem 1.2rem;border:1px solid rgba(242,233,225,.35);border-radius:3px">Vegetarian, vegan and gluten-free options available. Please tell us about all allergies when you enquire — our kitchen handles nuts, gluten, dairy and eggs.</p>
+  </div>
+</section>
+
+<section class="section" id="cart">
+  <div class="wrap cart-grid">
+    <div class="photo-frame reveal" style="aspect-ratio:3/4">CART PHOTO HERE</div>
+    <div class="cart-copy reveal">
+      <div class="eyebrow">New for 2026</div>
+      <h2>The Graze &amp; Bake Cart.</h2>
+      <p style="font-weight:300">One beautiful cart, endless possibilities. Our mobile cart transforms into whatever your event needs:</p>
+      <ul>
+        <li>A charcuterie &amp; cheese station</li>
+        <li>A sweet shop cart for weddings &amp; parties</li>
+        <li>A styled grazing display</li>
+        <li>A fully staffed serving bar</li>
+      </ul>
+      <p style="font-weight:300">Hire it empty and dress it yourself, or let us stock, style and serve. Delivery, setup and collection included.</p>
+      <span class="price-tag">Hire from £150</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery" style="background:var(--cream-warm)">
+  <div class="wrap">
+    <div class="eyebrow reveal">Follow along</div>
+    <h2 class="reveal">Fresh off the 'gram.</h2>
+    <p class="reveal" style="font-weight:300;max-width:38rem;margin-bottom:1.6rem">A peek at our latest tables, carts &amp; bakes — follow <a href="https://instagram.com/graze.and.bake" style="color:var(--terra);font-weight:600">@graze.and.bake</a> for more.</p>
+    <div class="gallery reveal" id="igGrid">
+      <div class="ph">LOADING…</div><div class="ph">LOADING…</div><div class="ph">LOADING…</div>
+      <div class="ph">LOADING…</div><div class="ph">LOADING…</div><div class="ph">LOADING…</div>
+    </div>
+    <p class="ig-cta reveal">See more on Instagram → <a href="https://instagram.com/graze.and.bake">@graze.and.bake</a></p>
+  </div>
+</section>
+
+<section class="section enquire" id="enquire">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="color:var(--soft)">Get in touch</div>
+    <h2>Let's create something beautiful.</h2>
+    <p>Tell us about your event and we'll come back to you within 24 hours with a quote.</p>
+
+    <form class="form-wrap" name="enquiry" method="POST">
+      <p style="display:none"><label>Don't fill this in: <input name="bot-field"></label></p>
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="f-name">Your name *</label>
+          <input id="f-name" name="name" type="text" required placeholder="Full name">
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone *</label>
+          <input id="f-phone" name="phone" type="tel" required placeholder="07700 000000">
+        </div>
+        <div class="field">
+          <label for="f-email">Email *</label>
+          <input id="f-email" name="email" type="email" required placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label for="f-date">Event date *</label>
+          <input id="f-date" name="event_date" type="date" required>
+        </div>
+        <div class="field">
+          <label for="f-type">Event type</label>
+          <select id="f-type" name="event_type">
+            <option value="">Please select…</option>
+            <option>Birthday party</option>
+            <option>Children's party</option>
+            <option>Wedding</option>
+            <option>Baby shower</option>
+            <option>Hen / stag do</option>
+            <option>Corporate event</option>
+            <option>Christening</option>
+            <option>Anniversary</option>
+            <option>Other celebration</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-guests">Number of guests</label>
+          <input id="f-guests" name="guests" type="number" min="1" placeholder="e.g. 30">
+        </div>
+
+        <div class="field full">
+          <label>What are you interested in?</label>
+          <div class="svc-checks">
+            <label><input type="checkbox" name="services" value="Grazing table (buffet style)"> Grazing table — buffet style</label>
+            <label><input type="checkbox" name="services" value="Grazing table (flat lay)"> Grazing table — flat lay</label>
+            <label><input type="checkbox" name="services" value="Charcuterie / sweet cart"> Charcuterie &amp; sweet cart</label>
+            <label><input type="checkbox" name="services" value="Grazing platters"> Grazing platters</label>
+            <label><input type="checkbox" name="services" value="Breakfast platters"> Breakfast platters</label>
+            <label><input type="checkbox" name="services" value="Kids party boxes"> Kids party boxes</label>
+            <label><input type="checkbox" name="services" value="Cake / cupcakes"> Cake &amp; cupcakes</label>
+            <label><input type="checkbox" name="services" value="Sweet cones / brownies / cookies"> Sweet cones, brownies &amp; cookies</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label for="f-allergies">Allergies or dietary requirements</label>
+          <input id="f-allergies" name="allergies" type="text" placeholder="e.g. 2 guests gluten-free, 1 nut allergy">
+        </div>
+
+        <div class="field full">
+          <label for="f-msg">Tell us about your event</label>
+          <textarea id="f-msg" name="message" placeholder="Theme, colours, venue, delivery or collection — anything that helps us quote"></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit">Send enquiry</button>
+        </div>
+        <p class="form-privacy">We'll only use your details to reply to your enquiry. Our kitchen handles nuts, gluten, dairy and eggs.</p>
+      </div>
+    </form>
+
+    <p class="alt">Prefer to chat? Email <a href="mailto:grazeandbake@hotmail.co.uk">grazeandbake@hotmail.co.uk</a> or DM us on Instagram.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">GRAZE &amp; BAKE.</div>
+  <div>Hutton, Essex — serving Essex &amp; London</div>
+  <div class="f-links">
+    <a href="#menu">Menu</a>
+    <a href="#cart">Cart Hire</a>
+    <a href="#enquire">Enquire</a>
+    <a href="https://instagram.com/graze.and.bake">Instagram</a>
+  </div>
+  <div class="fine">© 2026 Graze &amp; Bake Catering Co. · All prices subject to final quote · Please advise all allergies and dietary requirements at booking.</div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// GOOGLE SHEETS CONNECTION
+// Paste your Apps Script Web App URL between the quotes below.
+// Leave it empty ("") and the form still works via Netlify Forms only.
+// ══════════════════════════════════════════════════════════════════
+const SHEETS_WEBAPP_URL = "";
+// Paste your Cloudflare Worker URL between the quotes below (Instagram feed):
+const IG_FEED_URL = "";
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(a =>
+  a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'))
+);
+
+// Load Instagram feed into the gallery
+(async function () {
+  const grid = document.getElementById('igGrid');
+  if (!grid) return;
+  try {
+    if (!IG_FEED_URL) throw new Error('not configured');
+    const res = await fetch(IG_FEED_URL);
+    if (!res.ok) throw new Error('feed unavailable');
+    const { posts } = await res.json();
+    if (!posts || !posts.length) throw new Error('no posts');
+    grid.innerHTML = posts.slice(0, 6).map(p =>
+      `<a href="${p.link}" target="_blank" rel="noopener" class="ph" style="border:none;padding:0;overflow:hidden">
+         <img src="${p.image}" alt="${(p.caption || 'Graze and Bake on Instagram').replace(/"/g, '&quot;')}"
+              style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
+       </a>`
+    ).join('');
+  } catch (e) {
+    // Feed unavailable — keep the section tidy with a simple follow prompt
+    grid.style.display = 'none';
+  }
+})();
+
+// Send enquiry to Google Sheets, then show the thank-you page
+document.querySelector('form[name="enquiry"]').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const fd = new FormData(this);
+  const services = fd.getAll('services').join(', ');
+  fd.delete('services');
+  fd.append('services', services);
+
+  if (SHEETS_WEBAPP_URL) {
+    const params = new URLSearchParams(fd);
+    // keepalive lets the request finish even as the page navigates away
+    fetch(SHEETS_WEBAPP_URL, { method: 'POST', body: params, keepalive: true, mode: 'no-cors' });
+    window.location.href = 'thank-you.html';
+  } else {
+    // Fallback if the Google Sheet connection isn't configured yet:
+    // open the customer's email app with the enquiry pre-filled
+    let body = '';
+    for (const [k, v] of fd.entries()) body += k + ': ' + v + '\n';
+    window.location.href = 'mailto:grazeandbake@hotmail.co.uk?subject=' +
+      encodeURIComponent('Website enquiry from ' + (fd.get('name') || 'customer')) +
+      '&body=' + encodeURIComponent(body);
+  }
+});
+</script>
+</body>
+</html>
