@@ -7,7 +7,7 @@
 <meta name="description" content="Bespoke grazing tables, charcuterie carts, party boxes and bakes across Essex & London. As seen at events for Jacqueline Jossa and Ferne McCann.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Code+Pro:wght@400;600;700&family=Karla:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&family=Karla:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --terra:#A66940;
@@ -18,26 +18,41 @@
   --ink:#3B2818;
   --soft:#C99B77;
   --scrollbar:#814256;
-  --brand:'Baron','Anton',sans-serif;
+  --brand:'Baron',sans-serif;
   --mono:'Source Code Pro',monospace;
   --display:var(--brand);
   --body:'Karla',sans-serif;
 }
 
-/* Baron — your Canva logo font. Drop the file into a /fonts folder
-   alongside index.html with one of the names below (or tell Claude the
-   exact filename you used and this list will be updated to match). */
+/* Baron Neue — your Canva logo font, matched to the exact files
+   uploaded to /fonts (spaces in filenames are URL-encoded as %20). */
 @font-face{
   font-family:'Baron';
   font-weight:700;
   font-style:normal;
   font-display:swap;
-  src:url('fonts/Baron-Bold.otf') format('opentype'),
-      url('fonts/Baron-Bold.ttf') format('truetype'),
-      url('fonts/BaronNeue-Bold.otf') format('opentype'),
-      url('fonts/BaronNeue-Bold.ttf') format('truetype'),
-      url('fonts/Baron.otf') format('opentype'),
-      url('fonts/Baron.ttf') format('truetype');
+  src:url('fonts/Baron%20Neue%20Bold.otf') format('opentype');
+}
+@font-face{
+  font-family:'Baron';
+  font-weight:900;
+  font-style:normal;
+  font-display:swap;
+  src:url('fonts/Baron%20Neue%20Black.otf') format('opentype');
+}
+@font-face{
+  font-family:'Baron';
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+  src:url('fonts/Baron%20Neue.otf') format('opentype');
+}
+@font-face{
+  font-family:'Baron';
+  font-weight:700;
+  font-style:italic;
+  font-display:swap;
+  src:url('fonts/Baron%20Neue%20Bold%20Italic.otf') format('opentype');
 }
 
 /* Scrollbar */
@@ -54,7 +69,7 @@ body{font-family:var(--body);color:var(--ink);background:var(--cream);font-size:
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.2rem,4vw,3rem);height:68px;box-shadow:0 1px 0 rgba(0,0,0,.12)}
-.nav-logo{font-family:var(--display);font-weight:700;font-size:1.25rem;color:var(--cream);letter-spacing:.14em;text-decoration:none}
+.nav-logo{font-family:var(--display);font-weight:700;font-size:1.25rem;color:var(--cream);letter-spacing:.14em;text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;text-align:center}
 .nav-logo span{font-family:var(--mono);font-weight:300;font-size:.62rem;display:block;letter-spacing:.5em;margin-top:2px;color:var(--cream-warm)}
 .nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
 .nav-links a{font-family:var(--mono);color:var(--cream);text-decoration:none;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.9}
@@ -73,7 +88,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 .hero{background:var(--terra);color:var(--cream);min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 1.5rem 4rem;position:relative;overflow:hidden}
 .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,8vw,5.6rem);letter-spacing:.1em;line-height:1.04}
 .hero h1 .amp{font-weight:300}
-.hero .co{font-family:var(--mono);font-weight:300;font-size:clamp(.8rem,1.8vw,1.05rem);letter-spacing:.65em;margin-top:.9rem;color:var(--cream-warm);text-indent:.65em}
+.hero .co{font-family:var(--mono);font-weight:300;font-size:clamp(.95rem,2.1vw,1.25rem);letter-spacing:.65em;margin-top:.9rem;color:var(--cream-warm);text-indent:.65em}
 .hero-rule{width:56px;height:2px;background:var(--cream);opacity:.6;margin:2.2rem 0 1.8rem}
 .hero p{max-width:34rem;font-size:clamp(1rem,2vw,1.15rem);font-weight:300;color:var(--cream-warm)}
 .hero p strong{color:var(--cream);font-weight:600}
@@ -320,7 +335,7 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
         
     </div>
 
-    <p class="menu-note reveal" style="margin-top:1.6rem;font-size:.95rem">Delivery fees may apply.</p>
+    <p class="menu-note reveal" style="margin-top:0;font-size:.95rem">Delivery fees may apply.</p>
 
     <p class="menu-note reveal" style="font-size:1.05rem;font-style:normal;font-weight:400;margin-top:1.4rem;padding:1rem 1.2rem;border:1px solid rgba(242,233,225,.35);border-radius:3px">Vegetarian, vegan and gluten-free options available. Please tell us about all allergies when you enquire — our kitchen handles nuts, gluten, dairy and eggs.</p>
   </div>
@@ -425,8 +440,8 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
 <footer>
   <div class="f-logo">GRAZE &amp; BAKE.</div>
   <div>Hutton, Essex — serving Essex &amp; London</div>
-  <div style="display:flex;justify-content:center;overflow:hidden;height:150px;margin-top:16px">
-    <div style="transform:scale(0.55);transform-origin:top center;flex:0 0 auto">
+  <div style="display:flex;justify-content:center;overflow:hidden;height:180px;margin-top:16px">
+    <div style="transform:scale(0.68);transform-origin:top center;flex:0 0 auto">
       <script src="https://ratings.food.gov.uk/embed/embed-badge.js" data-business-id="1934145" data-rating-style="3" data-welsh="false"></script>
     </div>
   </div>
