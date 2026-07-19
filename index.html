@@ -7,19 +7,46 @@
 <meta name="description" content="Bespoke grazing tables, charcuterie carts, party boxes and bakes across Essex & London. As seen at events for Jacqueline Jossa and Ferne McCann.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Karla:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Code+Pro:wght@400;600;700&family=Karla:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --terra:#A56940;
+  --terra:#A66940;
   --terra-deep:#8A5432;
   --terra-dark:#6E4227;
   --cream:#F2E9E1;
   --cream-warm:#EADFD3;
   --ink:#3B2818;
   --soft:#C99B77;
-  --display:'Josefin Sans',sans-serif;
+  --scrollbar:#814256;
+  --brand:'Baron','Anton',sans-serif;
+  --mono:'Source Code Pro',monospace;
+  --display:var(--brand);
   --body:'Karla',sans-serif;
 }
+
+/* Baron — your Canva logo font. Drop the file into a /fonts folder
+   alongside index.html with one of the names below (or tell Claude the
+   exact filename you used and this list will be updated to match). */
+@font-face{
+  font-family:'Baron';
+  font-weight:700;
+  font-style:normal;
+  font-display:swap;
+  src:url('fonts/Baron-Bold.otf') format('opentype'),
+      url('fonts/Baron-Bold.ttf') format('truetype'),
+      url('fonts/BaronNeue-Bold.otf') format('opentype'),
+      url('fonts/BaronNeue-Bold.ttf') format('truetype'),
+      url('fonts/Baron.otf') format('opentype'),
+      url('fonts/Baron.ttf') format('truetype');
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--scrollbar);border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:#6e3548}
+*{scrollbar-color:var(--scrollbar) var(--cream);scrollbar-width:thin}
+html,body{overflow-x:hidden}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
@@ -28,9 +55,9 @@ body{font-family:var(--body);color:var(--ink);background:var(--cream);font-size:
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.2rem,4vw,3rem);height:68px;box-shadow:0 1px 0 rgba(0,0,0,.12)}
 .nav-logo{font-family:var(--display);font-weight:700;font-size:1.25rem;color:var(--cream);letter-spacing:.14em;text-decoration:none}
-.nav-logo span{font-weight:300;font-size:.62rem;display:block;letter-spacing:.5em;margin-top:2px;color:var(--cream-warm)}
+.nav-logo span{font-family:var(--mono);font-weight:300;font-size:.62rem;display:block;letter-spacing:.5em;margin-top:2px;color:var(--cream-warm)}
 .nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
-.nav-links a{color:var(--cream);text-decoration:none;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.9}
+.nav-links a{font-family:var(--mono);color:var(--cream);text-decoration:none;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.9}
 .nav-links a:hover,.nav-links a:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:5px}
 .nav-cta{background:var(--cream);color:var(--terra-dark)!important;padding:.55rem 1.2rem;border-radius:2px}
 .nav-cta:hover{text-decoration:none!important;background:var(--cream-warm)}
@@ -46,7 +73,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 .hero{background:var(--terra);color:var(--cream);min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 1.5rem 4rem;position:relative;overflow:hidden}
 .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,8vw,5.6rem);letter-spacing:.1em;line-height:1.04}
 .hero h1 .amp{font-weight:300}
-.hero .co{font-family:var(--display);font-weight:300;font-size:clamp(.8rem,1.8vw,1.05rem);letter-spacing:.65em;margin-top:.9rem;color:var(--cream-warm);text-indent:.65em}
+.hero .co{font-family:var(--mono);font-weight:300;font-size:clamp(.8rem,1.8vw,1.05rem);letter-spacing:.65em;margin-top:.9rem;color:var(--cream-warm);text-indent:.65em}
 .hero-rule{width:56px;height:2px;background:var(--cream);opacity:.6;margin:2.2rem 0 1.8rem}
 .hero p{max-width:34rem;font-size:clamp(1rem,2vw,1.15rem);font-weight:300;color:var(--cream-warm)}
 .hero p strong{color:var(--cream);font-weight:600}
@@ -60,15 +87,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 
 /* ── MARQUEE ── */
 .marquee{background:var(--terra-dark);color:var(--cream-warm);overflow:hidden;padding:.85rem 0;white-space:nowrap}
-.marquee-track{display:inline-block;animation:scroll 38s linear infinite;font-family:var(--display);font-weight:300;font-size:.82rem;letter-spacing:.3em;text-transform:uppercase}
+.marquee-track{display:inline-block;animation:scroll 38s linear infinite;font-family:var(--mono);font-weight:400;font-size:.82rem;letter-spacing:.3em;text-transform:uppercase}
 .marquee-track span{margin:0 1.6rem}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── SECTIONS ── */
 .section{padding:clamp(4rem,9vw,7rem) clamp(1.5rem,6vw,4rem)}
 .wrap{max-width:1080px;margin:0 auto}
-.eyebrow{font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem}
-.section h2{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,4.5vw,2.8rem);letter-spacing:.06em;line-height:1.15;margin-bottom:1.4rem}
+.eyebrow{font-family:var(--mono);font-weight:600;font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem}
+.section h2{font-family:var(--brand);font-weight:700;font-size:clamp(1.8rem,4.5vw,2.8rem);letter-spacing:.06em;line-height:1.15;margin-bottom:1.4rem}
 .section p.lead{max-width:42rem;font-size:1.08rem}
 
 /* about */
@@ -88,11 +115,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
 @media(max-width:840px){.menu-cols{grid-template-columns:1fr}}
 .menu-group{margin-bottom:2.4rem}
-.menu-group h3{font-family:var(--display);font-weight:600;font-size:1.05rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid rgba(242,233,225,.35);padding-bottom:.6rem;margin-bottom:1rem}
-.menu-item{display:flex;align-items:baseline;margin-bottom:.75rem;gap:.5rem}
-.menu-item .name{font-weight:400;white-space:nowrap}
-.menu-item .dots{flex:1;border-bottom:1.5px dotted rgba(242,233,225,.4);transform:translateY(-4px)}
-.menu-item .price{font-family:var(--display);font-weight:600;white-space:nowrap;letter-spacing:.03em}
+.menu-group h3{font-family:var(--mono);font-weight:600;font-size:1.05rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid rgba(242,233,225,.35);padding-bottom:.6rem;margin-bottom:1rem}
+.menu-item{display:flex;align-items:baseline;margin-bottom:.75rem;gap:.5rem;flex-wrap:wrap}
+.menu-item .name{font-weight:400;white-space:nowrap;overflow-wrap:anywhere}
+.menu-item .dots{flex:1;border-bottom:1.5px dotted rgba(242,233,225,.4);transform:translateY(-4px);min-width:12px}
+.menu-item .price{font-family:var(--brand);font-weight:600;white-space:nowrap;letter-spacing:.03em}
+@media(max-width:560px){
+  .menu-item{row-gap:.15rem}
+  .menu-item .name{white-space:normal}
+  .menu-item .dots{display:none}
+  .menu-item .price{white-space:normal;margin-left:auto}
+  .menu-group h3{font-size:.92rem;letter-spacing:.2em}
+  .menu-item .sub{font-size:.78rem}
+}
 .menu-item .sub{display:block;font-size:.82rem;color:var(--cream-warm);font-weight:300;margin-top:.1rem}
 .menu-note{margin-top:2rem;font-size:.85rem;color:var(--cream-warm);font-weight:300;font-style:italic}
 
@@ -112,7 +147,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 .ig-cta a{color:var(--terra);font-weight:600}
 
 /* ── ENQUIRE ── */
-.enquire{background:var(--terra-dark);color:var(--cream);text-align:center}
+.enquire{background:var(--terra);color:var(--cream);text-align:center}
 .enquire h2{color:var(--cream)}
 .enquire p{max-width:36rem;margin:0 auto 2rem;color:var(--cream-warm);font-weight:300}
 .enquire .btn-solid{font-size:.95rem;padding:1.15rem 2.6rem}
@@ -125,7 +160,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 @media(max-width:640px){.form-grid{grid-template-columns:1fr}}
 .field{display:flex;flex-direction:column;gap:.4rem}
 .field.full{grid-column:1/-1}
-.field label{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+.field label{font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
 .field input,.field select,.field textarea{font-family:var(--body);font-size:1rem;padding:.85rem 1rem;border:1.5px solid rgba(242,233,225,.35);background:rgba(242,233,225,.08);color:var(--cream);border-radius:2px;width:100%}
 .field input::placeholder,.field textarea::placeholder{color:rgba(242,233,225,.45)}
 .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F2E9E1' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
@@ -142,10 +177,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 .form-privacy{grid-column:1/-1;font-size:.8rem;color:var(--soft);text-align:center;font-weight:300;margin-top:.4rem}
 
 /* ── FOOTER ── */
-footer{background:var(--terra);color:var(--cream-warm);padding:3rem clamp(1.5rem,6vw,4rem);text-align:center;font-size:.88rem;font-weight:300}
-footer .f-logo{font-family:var(--display);font-weight:700;letter-spacing:.16em;font-size:1.1rem;color:var(--cream);margin-bottom:.4rem}
+footer{background:var(--cream);color:var(--terra);padding:3rem clamp(1.5rem,6vw,4rem);text-align:center;font-size:.88rem;font-weight:300}
+footer .f-logo{font-family:var(--brand);font-weight:700;letter-spacing:.16em;font-size:1.1rem;color:var(--terra);margin-bottom:.4rem}
 footer .f-links{margin:1.2rem 0;display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap}
-footer .f-links a{color:var(--cream);text-decoration:none}
+footer .f-links a{color:var(--terra);text-decoration:none;font-family:var(--mono);font-size:.85rem;letter-spacing:.05em}
 footer .f-links a:hover{text-decoration:underline}
 footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
 
@@ -190,7 +225,7 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
   </div>
 </div>
 
-<section class="section" id="about">
+<section class="section" id="about" style="background:var(--cream);color:var(--terra)">
   <div class="wrap about-grid">
     <div class="about-copy reveal">
       <div class="eyebrow">Who we are</div>
@@ -291,7 +326,7 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
   </div>
 </section>
 
-<section class="section" id="gallery" style="background:var(--cream-warm)">
+<section class="section" id="gallery" style="background:var(--cream);color:var(--terra)">
   <div class="wrap">
     <div class="eyebrow reveal">Follow along</div>
     <h2 class="reveal">Fresh off the 'gram.</h2>
@@ -390,6 +425,11 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
 <footer>
   <div class="f-logo">GRAZE &amp; BAKE.</div>
   <div>Hutton, Essex — serving Essex &amp; London</div>
+  <div style="display:flex;justify-content:center;overflow:hidden;height:150px;margin-top:16px">
+    <div style="transform:scale(0.55);transform-origin:top center;flex:0 0 auto">
+      <script src="https://ratings.food.gov.uk/embed/embed-badge.js" data-business-id="1934145" data-rating-style="3" data-welsh="false"></script>
+    </div>
+  </div>
   <div class="f-links">
     <a href="#menu">Menu</a>
     <a href="#enquire">Enquire</a>
@@ -404,7 +444,7 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
 // Paste your Apps Script Web App URL between the quotes below.
 // Leave it empty ("") and the form still works via Netlify Forms only.
 // ══════════════════════════════════════════════════════════════════
-const SHEETS_WEBAPP_URL = "";
+const SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzUZ6DOVOi9-eBFck9T2L_drF843u-8dNVN0V4ELLK7gFp02or-uIQ9f5bFfmRCEeuCEw/exec";
 // Paste your Cloudflare Worker URL between the quotes below (Instagram feed):
 const IG_FEED_URL = "https://grazeandbake-instagram.grazeandbake.workers.dev";
 
