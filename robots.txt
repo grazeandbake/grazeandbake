@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grazeandbake.co.uk/sitemap.xml
