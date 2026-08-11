@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graze & Bake Catering Co. — Grazing Tables, Platters & Bakes | Essex & London</title>
 <meta name="description" content="Bespoke grazing tables, charcuterie carts, party boxes and bakes across Essex & London. As seen at events for Jacqueline Jossa and Ferne McCann.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Graze & Bake Catering Co. — Grazing Tables, Platters & Bakes">
+<meta property="og:description" content="Bespoke grazing tables, charcuterie carts, party boxes and bakes across Essex & London. As seen at events for Jacqueline Jossa and Ferne McCann.">
+<meta property="og:url" content="https://grazeandbake.co.uk/">
+<meta property="og:image" content="https://grazeandbake.co.uk/social-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Graze & Bake Catering Co.">
+<meta name="twitter:description" content="Bespoke grazing tables, charcuterie carts, party boxes and bakes across Essex & London.">
+<meta name="twitter:image" content="https://grazeandbake.co.uk/social-share.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&family=Karla:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -191,6 +200,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 .form-submit button:hover{transform:translateY(-2px);background:#fff}
 .form-privacy{grid-column:1/-1;font-size:.8rem;color:var(--soft);text-align:center;font-weight:300;margin-top:.4rem}
 
+
+/* ── FAQ ── */
+.faq-item{border-bottom:1px solid rgba(166,105,64,.25);padding:.9rem 0}
+.faq-item summary{font-family:var(--mono);font-weight:600;font-size:.95rem;letter-spacing:.04em;cursor:pointer;color:var(--terra-dark);list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-item summary::after{content:"+";font-family:var(--body);font-size:1.3rem;color:var(--terra);transition:transform .2s ease}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{margin-top:.7rem;font-weight:300;font-size:.95rem;color:var(--ink);max-width:42rem}
+
+/* ── Sticky mobile CTA ── */
+.mobile-cta{display:none}
+@media(max-width:840px){
+  .mobile-cta{display:block;position:fixed;bottom:1.1rem;right:1.1rem;z-index:98;font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;background:var(--scrollbar);color:var(--cream);padding:.9rem 1.5rem;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+}
+
 /* ── FOOTER ── */
 footer{background:var(--cream);color:var(--terra);padding:3rem clamp(1.5rem,6vw,4rem);text-align:center;font-size:.88rem;font-weight:300}
 footer .f-logo{font-family:var(--brand);font-weight:700;letter-spacing:.16em;font-size:1.1rem;color:var(--terra);margin-bottom:.4rem}
@@ -241,6 +264,19 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Charcuterie & Cheese Cart" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sweet Cart" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Celebration Cakes" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How far in advance should I book?", "acceptedAnswer": {"@type": "Answer", "text": "As early as you can — weekends and summer dates get booked up quickly. We suggest 4–6 weeks ahead for grazing tables, but it is always worth asking as we sometimes have last-minute availability."}},
+    {"@type": "Question", "name": "Do you deliver and set up?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — our grazing tables include delivery, full setup, styling and collection after your event. Delivery fees may apply depending on your location."}},
+    {"@type": "Question", "name": "Can you cater for allergies and dietary requirements?", "acceptedAnswer": {"@type": "Answer", "text": "Vegetarian, vegan and gluten-free options are available. Please tell us about any allergies or intolerances when you enquire. Our kitchen handles all allergens and cannot guarantee a completely allergen-free environment."}},
+    {"@type": "Question", "name": "What areas do you cover?", "acceptedAnswer": {"@type": "Answer", "text": "We are based in Hutton, Essex and cater across Essex, London and beyond."}},
+    {"@type": "Question", "name": "How do payments work?", "acceptedAnswer": {"@type": "Answer", "text": "A deposit secures your date, with the remaining balance due before your event. We send a secure payment link."}}
   ]
 }
 </script>
@@ -392,11 +428,41 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
   </div>
 </section>
 
+
+<section class="section" id="faq" style="background:var(--cream-warm);color:var(--terra)">
+  <div class="wrap">
+    <div class="eyebrow reveal">Good to know</div>
+    <h2 class="reveal">Frequently asked questions.</h2>
+    <div class="reveal" style="max-width:46rem">
+      <details class="faq-item">
+        <summary>How far in advance should I book?</summary>
+        <p>As early as you can — weekends and summer dates get booked up quickly. We'd suggest 4–6 weeks ahead for grazing tables, but it's always worth asking as we sometimes have last-minute availability.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you deliver and set up?</summary>
+        <p>Yes — our grazing tables include delivery, full setup, styling and collection after your event. Delivery fees may apply depending on your location.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can you cater for allergies and dietary requirements?</summary>
+        <p>Absolutely — vegetarian, vegan and gluten-free options are available. Please tell us about any allergies or intolerances when you enquire. Our kitchen handles all allergens and cannot guarantee a completely allergen-free environment.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What areas do you cover?</summary>
+        <p>We're based in Hutton, Essex and cater across Essex, London and beyond — just tell us where your event is and we'll confirm we can reach you.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do payments work?</summary>
+        <p>A deposit secures your date, with the remaining balance due before your event. We'll send you a secure payment link — nice and simple, no cash needed.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="section enquire" id="enquire">
   <div class="wrap reveal">
     <div class="eyebrow" style="color:var(--cream)">Get in touch</div>
     <h2>Let's get something in the diary..</h2>
-    <p>Tell us about your event and we'll come back to you ASAP with a quote.</p>
+    <p>Tell us about your event and we'll come back to you within 24 hours with a quote.</p>
 
     <form class="form-wrap" name="enquiry" method="POST">
       <p style="display:none"><label>Don't fill this in: <input name="bot-field"></label></p>
@@ -487,9 +553,12 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
     <a href="#menu">Menu</a>
     <a href="#enquire">Enquire</a>
     <a href="https://instagram.com/graze.and.bake">Instagram</a>
+    <a href="privacy.html">Privacy</a>
   </div>
   <div class="fine">© 2026 Graze &amp; Bake Catering Co. · All prices subject to final quote · Please advise all allergies and dietary requirements at booking.</div>
 </footer>
+
+<a class="mobile-cta" href="#enquire">Enquire</a>
 
 <script>
 // ══════════════════════════════════════════════════════════════════

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Event Details — Graze &amp; Bake Catering Co.</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&family=Karla:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --terra:#A66940; --terra-dark:#6E4227; --cream:#F2E9E1; --cream-warm:#EADFD3;
+  --ink:#3B2818; --soft:#C99B77; --scrollbar:#814256;
+  --brand:'Baron',sans-serif; --mono:'Source Code Pro',monospace; --body:'Karla',sans-serif;
+}
+@font-face{font-family:'Baron';font-weight:700;font-display:swap;src:url('fonts/Baron%20Neue%20Bold.otf') format('opentype')}
+::-webkit-scrollbar{width:12px}::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--scrollbar);border-radius:6px}
+*{scrollbar-color:var(--scrollbar) var(--cream);margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.6}
+
+header{background:var(--terra);color:var(--cream);padding:3rem 1.5rem 2.5rem;text-align:center}
+header h1{font-family:var(--brand);font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:.1em}
+header .co{font-family:var(--mono);font-size:.68rem;letter-spacing:.5em;margin-top:.4rem;color:var(--cream-warm);text-indent:.5em}
+header p{margin-top:1.4rem;color:var(--cream-warm);font-weight:300;max-width:34rem;margin-left:auto;margin-right:auto}
+
+main{max-width:44rem;margin:0 auto;padding:2.6rem 1.5rem 4rem}
+.confirm-strip{background:var(--cream-warm);border-left:3px solid var(--terra);padding:1rem 1.3rem;font-size:.9rem;margin-bottom:2.2rem}
+
+fieldset{border:none;margin-bottom:2rem}
+legend{font-family:var(--mono);font-weight:700;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-dark);border-bottom:1px solid rgba(166,105,64,.3);padding-bottom:.5rem;margin-bottom:1.1rem;width:100%}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.field.full{grid-column:1/-1}
+label{font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-dark)}
+label .opt{color:var(--soft);text-transform:none;font-weight:400;letter-spacing:0}
+input,select,textarea{font-family:var(--body);font-size:1rem;padding:.75rem .9rem;border:1.5px solid var(--soft);background:#fff;color:var(--ink);border-radius:2px;width:100%}
+textarea{min-height:90px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--terra);outline-offset:1px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+@media(max-width:600px){.checks{grid-template-columns:1fr}}
+.checks label{display:flex;align-items:center;gap:.55rem;font-family:var(--body);font-weight:400;font-size:.92rem;text-transform:none;letter-spacing:0;color:var(--ink);cursor:pointer}
+.checks input{width:auto}
+
+.submit-row{text-align:center;margin-top:1rem}
+button{font-family:var(--brand);font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;background:var(--terra);color:var(--cream);border:none;padding:1.1rem 3rem;border-radius:2px;cursor:pointer}
+button:hover{background:var(--terra-dark)}
+.privacy-note{font-size:.8rem;color:var(--soft);text-align:center;margin-top:1rem}
+
+.success{display:none;text-align:center;padding:3rem 1.5rem}
+.success h2{font-family:var(--brand);font-size:1.8rem;color:var(--terra-dark);margin-bottom:1rem}
+.success p{max-width:30rem;margin:0 auto;font-weight:300}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>YOUR EVENT DETAILS</h1>
+  <div class="co">GRAZE &amp; BAKE CATERING CO.</div>
+  <p>Thanks for booking with us! Please fill in as much detail as you can below — this helps us plan, prep and deliver your event exactly right on the day.</p>
+</header>
+
+<main>
+  <div class="confirm-strip" id="prefillNote" style="display:none">
+    Pre-filled for <strong id="prefillName"></strong>, event on <strong id="prefillDate"></strong>. Not you, or details wrong? Just edit the fields below.
+  </div>
+
+  <form id="jobForm">
+    <input type="hidden" name="formType" value="jobsheet">
+
+    <fieldset>
+      <legend>The basics</legend>
+      <div class="grid">
+        <div class="field"><label for="name">Your name *</label><input id="name" name="name" required></div>
+        <div class="field"><label for="phone">Best contact number for the day *</label><input id="phone" name="phone" type="tel" required></div>
+        <div class="field"><label for="event_date">Event date *</label><input id="event_date" name="event_date" type="date" required></div>
+        <div class="field"><label for="event_type">Event type</label>
+          <select id="event_type" name="event_type">
+            <option value="">Please select…</option>
+            <option>Birthday party</option><option>Children's party</option><option>Wedding</option>
+            <option>Baby shower</option><option>Hen / stag do</option><option>Corporate event</option>
+            <option>Christening</option><option>Anniversary</option><option>Other celebration</option>
+          </select>
+        </div>
+        <div class="field"><label for="guests_adults">Number of adults</label><input id="guests_adults" name="guests_adults" type="number" min="0"></div>
+        <div class="field"><label for="guests_children">Number of children</label><input id="guests_children" name="guests_children" type="number" min="0"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Venue &amp; timings</legend>
+      <div class="field full"><label for="address">Full venue address &amp; postcode *</label><textarea id="address" name="address" required placeholder="Including postcode, for satnav"></textarea></div>
+      <div class="grid">
+        <div class="field"><label for="delivery">Delivery, or will you collect?</label>
+          <select id="delivery" name="delivery">
+            <option value="">Please select…</option>
+            <option>Delivery to venue</option>
+            <option>I'll collect</option>
+          </select>
+        </div>
+        <div class="field"><label for="setup_time">Setup needed by</label><input id="setup_time" name="setup_time" type="time"></div>
+        <div class="field"><label for="event_start">Event start time</label><input id="event_start" name="event_start" type="time"></div>
+        <div class="field"><label for="collection_time">Collection time <span class="opt">(if applicable)</span></label><input id="collection_time" name="collection_time" type="time"></div>
+      </div>
+      <div class="field full"><label for="access">Parking &amp; access notes <span class="opt">(stairs, lift, loading bay, gate code etc.)</span></label><textarea id="access" name="access"></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your order</legend>
+      <div class="field full">
+        <label>Please confirm what you've booked</label>
+        <div class="checks">
+          <label><input type="checkbox" name="items" value="Grazing table (buffet style)"> Grazing table — buffet style</label>
+          <label><input type="checkbox" name="items" value="Grazing table (flat lay)"> Grazing table — flat lay</label>
+          <label><input type="checkbox" name="items" value="Kids grazing table"> Kids grazing table</label>
+          <label><input type="checkbox" name="items" value="Grazing platters"> Grazing platters</label>
+          <label><input type="checkbox" name="items" value="Breakfast platters"> Breakfast platters</label>
+          <label><input type="checkbox" name="items" value="Kids party boxes"> Kids party boxes</label>
+          <label><input type="checkbox" name="items" value="Charcuterie & cheese cart"> Charcuterie &amp; cheese cart</label>
+          <label><input type="checkbox" name="items" value="Sweet cart"> Sweet cart</label>
+          <label><input type="checkbox" name="items" value="Cake cart"> Cake cart</label>
+          <label><input type="checkbox" name="items" value="Celebration cake"> Celebration cake</label>
+          <label><input type="checkbox" name="items" value="Cupcakes"> Cupcakes</label>
+          <label><input type="checkbox" name="items" value="Sweet cones"> Sweet cones</label>
+        </div>
+      </div>
+      <div class="field full"><label for="theme">Colour scheme / theme / styling preferences</label><textarea id="theme" name="theme" placeholder="Any colours, themes or styling touches to match your event"></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Allergies &amp; anything else</legend>
+      <div class="field full"><label for="allergies">Allergies or dietary requirements <span class="opt">(please be specific — number of guests affected and what to avoid)</span></label><textarea id="allergies" name="allergies" required></textarea></div>
+      <div class="field full"><label for="venue_contact">Venue contact <span class="opt">(if there's a coordinator or different on-site contact)</span></label><input id="venue_contact" name="venue_contact"></div>
+      <div class="field full"><label for="notes">Anything else we should know?</label><textarea id="notes" name="notes"></textarea></div>
+    </fieldset>
+
+    <div class="submit-row">
+      <button type="submit">Submit my details</button>
+      <p class="privacy-note">These details go straight to Josh &amp; Lauren to prep your event — nothing else.</p>
+    </div>
+  </form>
+
+  <div class="success" id="successMsg">
+    <h2>THANK YOU!</h2>
+    <p>Your event details have landed with us safely. If anything changes before your big day, just get back in touch and we'll update it.</p>
+  </div>
+</main>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// Paste your Apps Script Web App URL here (same one used for enquiries)
+const SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzUZ6DOVOi9-eBFck9T2L_drF843u-8dNVN0V4ELLK7gFp02or-uIQ9f5bFfmRCEeuCEw/exec";
+// ═══════════════════════════════════════════════════════════════
+
+// Pre-fill from a shareable link, e.g.
+// job-details.html?name=Sarah%20Smith&date=2026-09-12
+const params = new URLSearchParams(window.location.search);
+const prefName = params.get('name');
+const prefDate = params.get('date');
+if (prefName) {
+  document.getElementById('name').value = prefName;
+  document.getElementById('prefillName').textContent = prefName;
+}
+if (prefDate) {
+  document.getElementById('event_date').value = prefDate;
+  document.getElementById('prefillDate').textContent = new Date(prefDate).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+}
+if (prefName || prefDate) document.getElementById('prefillNote').style.display = 'block';
+
+document.getElementById('jobForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const fd = new FormData(this);
+  const items = fd.getAll('items').join(', ');
+  fd.delete('items');
+  fd.append('items', items);
+
+  if (SHEETS_WEBAPP_URL) {
+    const body = new URLSearchParams(fd);
+    fetch(SHEETS_WEBAPP_URL, { method: 'POST', body, keepalive: true, mode: 'no-cors' });
+  }
+  this.style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>

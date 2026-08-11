@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /job-details.html
 
 Sitemap: https://grazeandbake.co.uk/sitemap.xml
