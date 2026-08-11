@@ -195,6 +195,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--terra);disp
 @media(max-width:520px){.svc-checks{grid-template-columns:1fr}}
 .svc-checks label{display:flex;align-items:center;gap:.6rem;font-family:var(--body);font-size:.92rem;font-weight:300;color:var(--cream-warm);text-transform:none;letter-spacing:0;cursor:pointer}
 .svc-checks input{width:auto;accent-color:var(--cream)}
+.svc-row{display:flex;flex-direction:column;gap:.5rem}
+.addon-panel{max-height:0;overflow:hidden;opacity:0;transition:max-height .35s ease,opacity .3s ease,margin .35s ease;margin-left:1.6rem}
+.addon-panel.open{max-height:220px;opacity:1;margin-top:.3rem;margin-bottom:.4rem}
+.addon-panel .addon-title{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:.5rem}
+.addon-panel label{display:flex;align-items:center;gap:.55rem;font-family:var(--body);font-size:.86rem;font-weight:300;color:var(--cream-warm);margin-bottom:.4rem;cursor:pointer}
+.addon-panel input{width:auto;accent-color:var(--cream)}
 .form-submit{grid-column:1/-1;text-align:center;margin-top:.8rem}
 .form-submit button{font-family:var(--display);font-weight:600;font-size:.95rem;letter-spacing:.18em;text-transform:uppercase;background:var(--cream);color:var(--terra-dark);border:none;padding:1.15rem 3rem;border-radius:2px;cursor:pointer;transition:transform .15s ease,background .15s ease}
 .form-submit button:hover{transform:translateY(-2px);background:#fff}
@@ -339,8 +345,8 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
       <div>
         <div class="menu-group reveal">
           <h3>Grazing Tables</h3>
-          <div class="menu-item"><span class="name">Buffet style<span class="sub">Risers, boards &amp; full styling</span></span><span class="dots"></span><span class="price">from £22.50 pp</span></div>
-          <div class="menu-item"><span class="name">Flat lay<span class="sub">Laid directly on the table</span></span><span class="dots"></span><span class="price">from £22.50 pp</span></div>
+          <div class="menu-item"><span class="name">Buffet style<span class="sub">Styled with risers for a more substantial buffet look</span></span><span class="dots"></span><span class="price">£22.50 pp</span></div>
+          <div class="menu-item"><span class="name">Flat lay<span class="sub">Laid directly on the table with foliage &amp; greenery</span></span><span class="dots"></span><span class="price">£22.50 pp</span></div>
           <div class="menu-item"><span class="name">Kids grazing table</span><span class="dots"></span><span class="price">from £10 pp</span></div>
         </div>
 
@@ -360,7 +366,7 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
         <div class="menu-group reveal">
           <h3>Kids Party Boxes</h3>
           <div class="menu-item"><span class="name">Premium<span class="sub">Personalised to match the theme of your party</span></span><span class="dots"></span><span class="price">£12.50 pp</span></div>
-          <div class="menu-item"><span class="name">Standard</span><span class="dots"></span><span class="price">£7.50 pp</span></div>
+          <div class="menu-item"><span class="name">Standard</span><span class="dots"></span><span class="price">£8.50 pp</span></div>
         </div>
 
         <div class="menu-group reveal">
@@ -410,6 +416,8 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
     </div>
 
     <p class="menu-note reveal" style="margin-top:0;font-size:.95rem">Delivery fees may apply.</p>
+
+    <p class="menu-note reveal" style="margin-top:.4rem;font-size:.85rem;color:var(--cream-warm)">A 25% booking fee applies to all bookings. Where cart or equipment hire is included, a refundable £50 deposit applies, returned within 48 hours of collection.</p>
 
     <p class="menu-note reveal" style="font-size:1.05rem;font-style:normal;font-weight:400;margin-top:1.4rem;padding:1rem 1.2rem;border:1px solid rgba(242,233,225,.35);border-radius:3px">Vegetarian, vegan and gluten-free options available. Please tell us about all allergies when you enquire — our kitchen handles nuts, gluten, dairy and eggs.</p>
   </div>
@@ -507,17 +515,46 @@ footer .fine{opacity:.7;font-size:.78rem;margin-top:1.4rem}
         <div class="field full">
           <label>What are you interested in?</label>
           <div class="svc-checks">
-            <label><input type="checkbox" name="services" value="Grazing table (buffet style)"> Grazing table — buffet style</label>
-            <label><input type="checkbox" name="services" value="Grazing table (flat lay)"> Grazing table — flat lay</label>
+            <div class="svc-row">
+              <label><input type="checkbox" name="services" value="Grazing table (buffet style)" class="svc-trigger" data-addon="addon-grazing"> Grazing table — buffet style</label>
+            </div>
+            <div class="svc-row">
+              <label><input type="checkbox" name="services" value="Grazing table (flat lay)" class="svc-trigger" data-addon="addon-grazing"> Grazing table — flat lay</label>
+            </div>
             <label><input type="checkbox" name="services" value="Kids grazing table"> Kids grazing table</label>
             <label><input type="checkbox" name="services" value="Charcuterie / sweet cart"> Charcuterie &amp; sweet cart</label>
             <label><input type="checkbox" name="services" value="Grazing platters"> Grazing platters</label>
             <label><input type="checkbox" name="services" value="Breakfast platters"> Breakfast platters</label>
-            <label><input type="checkbox" name="services" value="Kids party boxes"> Kids party boxes</label>
+            <div class="svc-row">
+              <label><input type="checkbox" name="services" value="Kids party boxes" class="svc-trigger" data-addon="addon-kids"> Kids party boxes</label>
+            </div>
             <label><input type="checkbox" name="services" value="Cake / cupcakes"> Cake &amp; cupcakes</label>
             <label><input type="checkbox" name="services" value="Sweet cones"> Sweet cones</label>
             <label><input type="checkbox" name="services" value="Brownies / Cookies"> Brownies &amp; cookies</label>
           </div>
+
+          <!-- Add-on panel: Grazing tables — real menu & prices -->
+          <div class="addon-panel" id="addon-grazing">
+            <div class="addon-title">Add extras to your grazing table</div>
+            <label><input type="checkbox" name="addons" value="Pasta - pesto or sun-dried tomato (+£1pp)"> Pasta &ndash; pesto or sun-dried tomato <span style="opacity:.6">(+£1 pp)</span></label>
+            <label><input type="checkbox" name="addons" value="Salad bowl - pasta/rice/standard (+50p pp)"> Salad bowl &ndash; pasta, rice or standard <span style="opacity:.6">(+50p pp)</span></label>
+            <label><input type="checkbox" name="addons" value="Caprese board (+£1.50pp)"> Caprese board <span style="opacity:.6">(+£1.50 pp)</span></label>
+            <label><input type="checkbox" name="addons" value="Charcuterie cups/cones (+£3pp, or +£1.50pp replacing charcuterie meats)"> Charcuterie cups / cones <span style="opacity:.6">(+£3 pp, or +£1.50 pp if replacing the charcuterie meats)</span></label>
+            <label><input type="checkbox" name="addons" value="Table scaping (POA)"> Table scaping <span style="opacity:.6">(price on request)</span></label>
+            <label><input type="checkbox" name="addons" value="Homemade baked goods (POA)"> Homemade baked goods <span style="opacity:.6">(price on request)</span></label>
+          </div>
+
+          <!-- Add-on panel: Kids party boxes — real menu & prices -->
+          <div class="addon-panel" id="addon-kids">
+            <div class="addon-title">Add extras to your kids party boxes</div>
+            <label><input type="checkbox" name="addons" value="Drinks (+£1 each)"> Drinks <span style="opacity:.6">(+£1 each)</span></label>
+            <label><input type="checkbox" name="addons" value="Homemade baked goods (POA)"> Homemade baked goods <span style="opacity:.6">(price on request)</span></label>
+          </div>
+        </div>
+
+        <div class="field full" id="addonSummaryWrap" style="display:none">
+          <label>Extras selected</label>
+          <div id="addonSummary" style="font-size:.9rem;color:var(--cream-warm);font-weight:300"></div>
         </div>
 
         <div class="field full">
@@ -576,6 +613,21 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+// Show/hide add-on panels when a trigger service is checked
+document.querySelectorAll('.svc-trigger').forEach(trigger => {
+  trigger.addEventListener('change', () => {
+    const panel = document.getElementById(trigger.dataset.addon);
+    if (!panel) return;
+    // if ANY trigger sharing this panel is checked, keep it open
+    const anyChecked = Array.from(document.querySelectorAll(`.svc-trigger[data-addon="${trigger.dataset.addon}"]`))
+      .some(t => t.checked);
+    panel.classList.toggle('open', anyChecked);
+    if (!anyChecked) {
+      panel.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    }
+  });
+});
+
 // Close mobile nav on link click
 document.querySelectorAll('.nav-links a').forEach(a =>
   a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'))
@@ -610,6 +662,9 @@ document.querySelector('form[name="enquiry"]').addEventListener('submit', functi
   const services = fd.getAll('services').join(', ');
   fd.delete('services');
   fd.append('services', services);
+  const addons = fd.getAll('addons').join(', ');
+  fd.delete('addons');
+  fd.append('addons', addons);
 
   if (SHEETS_WEBAPP_URL) {
     const params = new URLSearchParams(fd);
