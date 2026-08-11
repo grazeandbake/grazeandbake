@@ -154,11 +154,19 @@ button:hover{background:var(--terra-dark)}
 const SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzUZ6DOVOi9-eBFck9T2L_drF843u-8dNVN0V4ELLK7gFp02or-uIQ9f5bFfmRCEeuCEw/exec";
 // ═══════════════════════════════════════════════════════════════
 
-// Pre-fill from a shareable link, e.g.
-// job-details.html?name=Sarah%20Smith&date=2026-09-12
+// Pre-fill from a shareable link. This link is generated automatically for
+// you in the "Job Sheet Link" column of your Enquiries sheet — just copy
+// that cell and send it, no need to build the link by hand.
 const params = new URLSearchParams(window.location.search);
 const prefName = params.get('name');
 const prefDate = params.get('date');
+const prefPhone = params.get('phone');
+const prefType = params.get('type');
+const prefGuests = params.get('guests');
+const prefAllergies = params.get('allergies');
+const prefServices = params.get('services');
+const prefMessage = params.get('message');
+
 if (prefName) {
   document.getElementById('name').value = prefName;
   document.getElementById('prefillName').textContent = prefName;
@@ -167,6 +175,31 @@ if (prefDate) {
   document.getElementById('event_date').value = prefDate;
   document.getElementById('prefillDate').textContent = new Date(prefDate).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
 }
+if (prefPhone) document.getElementById('phone').value = prefPhone;
+if (prefGuests) document.getElementById('guests_adults').value = prefGuests;
+if (prefAllergies) document.getElementById('allergies').value = prefAllergies;
+
+if (prefType) {
+  const select = document.getElementById('event_type');
+  const match = Array.from(select.options).find(o => o.value.toLowerCase() === prefType.toLowerCase());
+  if (match) select.value = match.value;
+}
+
+// Tick any "items" checkboxes whose value matches (even partially) what
+// they originally enquired about, and keep the full original enquiry
+// text safely in Notes either way, so nothing is ever lost.
+let notesPrefill = '';
+if (prefServices) {
+  const serviceList = prefServices.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+  document.querySelectorAll('.checks input[type="checkbox"]').forEach(cb => {
+    const val = cb.value.toLowerCase();
+    if (serviceList.some(s => s && (val.includes(s) || s.includes(val)))) cb.checked = true;
+  });
+  notesPrefill += 'Originally enquired about: ' + prefServices + '\n';
+}
+if (prefMessage) notesPrefill += 'Original enquiry message: ' + prefMessage;
+if (notesPrefill) document.getElementById('notes').value = notesPrefill.trim();
+
 if (prefName || prefDate) document.getElementById('prefillNote').style.display = 'block';
 
 document.getElementById('jobForm').addEventListener('submit', function (e) {
